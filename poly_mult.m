@@ -4,7 +4,7 @@ function ab = poly_mult(a, b, mod_pol)
     for i_bit = 1 : 8 
         if bitget(a, i_bit)
             b_shitf = bitshift(b, i_bit - 1) ;
-            ab = bitxor(ab, b_shitf);;;;
+            ab = bitxor(ab, b_shitf);
         end
     end
 
