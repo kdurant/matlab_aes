@@ -22,3 +22,4 @@ function ciphertext = cipher (plaintext, w, s_box, poly_mat)
     state = add_round_key (state, round_key);
 
     ciphertext = reshape (state, 1, 16);
+    ciphertext = dec2hex(ciphertext);
