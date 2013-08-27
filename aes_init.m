@@ -16,4 +16,5 @@ function [s_box, inv_s_box, w, poly_mat, inv_poly_mat] = aes_init
         '00' '00' '00' '00' '00' '00' '00' '00'};
     key = hex2dec(key_hex); 
     w = key_expansion (key, s_box, rcon);
+    all_key=dec2hex(w);
     [poly_mat, inv_poly_mat]= poly_mat_gen;
