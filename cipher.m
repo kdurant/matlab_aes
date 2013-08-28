@@ -7,7 +7,7 @@ function ciphertext = cipher (plaintext, w, s_box, poly_mat)
     %initial_round_plaintext_in = dec2hex(reshape (state, 1, 16))
     % initial round
     round_key = (w(1:4, :))';
-    %initial_round_key = dec2hex(reshape (round_key, 1, 16))
+    initial_round_key = dec2hex(reshape (round_key, 1, 16))
     state = add_round_key (state, round_key);
     %initial_round_plaintext_out = dec2hex(reshape (state, 1, 16))
     % nine round
@@ -19,7 +19,7 @@ function ciphertext = cipher (plaintext, w, s_box, poly_mat)
         state = mix_columns (state, poly_mat);
         %every_mix_columns = dec2hex(reshape (state, 1, 16))
         round_key = (w((1:4) + 4*i_round, :))';
-        %every_round_key = dec2hex(reshape (round_key, 1, 16))
+        every_round_key = dec2hex(reshape (round_key, 1, 16))
         state = add_round_key (state, round_key);
         %round_plaintext_out = dec2hex(reshape (state, 1, 16))
     end
@@ -28,7 +28,7 @@ function ciphertext = cipher (plaintext, w, s_box, poly_mat)
     state = sub_bytes (state, s_box);
     state = shift_rows (state);
     round_key = (w(41:44, :))';
-    %final_round_key = dec2hex(reshape (round_key, 1, 16))
+    final_round_key = dec2hex(reshape (round_key, 1, 16))
     state = add_round_key (state, round_key);
     %final_round_plaintext_out = dec2hex(reshape (state, 1, 16))
 

@@ -10,6 +10,7 @@ ciphertext = {'03' '36' '76' '3e' '96' '6d' '92' '59' '5a' '56' '7c' 'c9' 'ce' '
 ciphertext = hex2dec(ciphertext) ;
 %modelname = 'AES';
 %open_system(modelname);
+clc
 [s_box, inv_s_box, w, poly_mat, inv_poly_mat] = aes_init ;
 disp('Now inv_cipher');
 inv_cipher (ciphertext, w, inv_s_box, inv_poly_mat)
