@@ -16,6 +16,7 @@ function plaintext = inv_cipher (ciphertext, w, inv_s_box, inv_poly_mat)
         every_round_key = dec2hex(reshape (round_key, 1, 16))
         state = add_round_key (state, round_key);
         round_plaintext_out = dec2hex(reshape (state, 1, 16))
+        state = mix_columns (state, inv_poly_mat);
     end
     % final round
     final_round_plaintext_in = dec2hex(reshape (state, 1, 16))
